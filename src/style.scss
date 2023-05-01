@@ -1,0 +1,32 @@
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  #app {
+    height: 100vh;
+    .table {
+      width: 80%;
+      margin-top: 1rem;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 1rem;
+      .row {
+        border-bottom: 1px solid #565656;
+        padding: 0 0 0.5rem;
+        &:not(:nth-child(1)) {
+          margin-bottom: 0.5rem;
+        }
+      }
+      box-shadow: 0 0 1rem 0 #56565656;
+
+      border-radius: 1rem;
+      -webkit-border-radius: 1rem;
+      -moz-border-radius: 1rem;
+      -ms-border-radius: 1rem;
+      -o-border-radius: 1rem;
+    }
+  }
+}
