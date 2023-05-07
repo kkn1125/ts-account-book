@@ -61,39 +61,24 @@ export default class Account {
     } else if (idOrClass.classes && idOrClass.classes.length > 0) {
       newElement.classList.add(...idOrClass.classes);
     }
+    newElement.classList.add("cell");
     return newElement;
   }
 
-  render() {
-    const id = this.createElement("span", {
-      classes: ["id"],
-    });
-    const category = this.createElement("span", {
-      classes: ["category"],
-    });
-    const from = this.createElement("span", {
-      classes: ["from"],
-    });
-    const to = this.createElement("span", {
-      classes: ["to"],
-    });
-    const cost = this.createElement("span", {
-      classes: ["cost"],
-    });
-    const currency = this.createElement("span", {
-      classes: ["currency"],
-    });
-    const fixed = this.createElement("span", {
-      classes: ["fixed"],
-    });
-    const desc = this.createElement("span", {
-      classes: ["desc"],
-    });
-    const createdAt = this.createElement("span", {
-      classes: ["createdAt"],
-    });
-    const updatedAt = this.createElement("span", {
-      classes: ["updatedAt"],
-    });
+  render(field: keyof AccountType) {
+    const span = this.createElement("span", { classes: [field] });
+    let content = "";
+    if (field === "cost") {
+      content = this[field].toLocaleString("ko");
+    } else if (field === "createdAt" || field === "updatedAt") {
+      content = new Date(this[field]).toLocaleString("ko");
+    } else if (field === "fixed") {
+      content = this[field] ? "fixed" : "";
+    } else {
+      content = this[field];
+    }
+    span.innerHTML = String(content) || "";
+    // return this[field] ? span.outerHTML : "";
+    return span.outerHTML;
   }
 }

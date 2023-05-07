@@ -7,11 +7,21 @@ console.log(kimsonAccount);
 kimsonAccount.add({
   category: "test",
   cost: 1300,
-  // from: "me",
-  // to: "naver",
-  // desc: "test account",
-  fixed: false,
-  currency: "credit",
+  fixed: true,
+  // from: "낑낑",
+  // to: "낑낑",
+  // // desc: "test account",
+  // fixed: false,
+  // currency: "credit",
+});
+kimsonAccount.add({
+  category: "test",
+  cost: 5000,
+  // from: "낑낑",
+  // to: "낑낑",
+  // // desc: "test account",
+  // fixed: false,
+  // currency: "credit",
 });
 
 kimsonAccount.render();

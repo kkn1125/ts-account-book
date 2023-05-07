@@ -10,8 +10,6 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
   dotenv.config({
     path: path.join(path.resolve(), `.env.${mode}`),
   });
-  console.log(mode);
-  console.log(process.env.PORT);
   return {
     define: {
       __APP_ENV__: env.APP_ENV,

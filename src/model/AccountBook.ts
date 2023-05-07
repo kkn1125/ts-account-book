@@ -37,19 +37,41 @@ export default class AccountBook {
   }
 
   render() {
-    const contents = this.list.map((account) => {
+    const contents = this.list.map((account, i) => {
       return `
-				<div class="row">
-					<span>${account.id}</span>
-					<span>${account.category}</span>
-					<span>${account.cost.toLocaleString("ko")}원</span>
-					<span>${account.desc}</span>
+				<div class="${["row", "body"]
+          .concat(...(account.fixed ? ["fixed"] : []))
+          .join(" ")}">
+          <span class="cell">${i + 1}.</span>
+					${"" && account.render("id")}
+					${account.render("category")}
+					${account.render("from")}
+					${account.render("to")}
+					${account.render("cost")}
+					${account.render("currency")}
+					${account.render("fixed")}
+					${account.render("desc")}
+					${account.render("createdAt")}
+					${account.render("updatedAt")}
 				</div>
 			`;
     });
+
     this.renderer.render(`
 		<div class="table">
-			${contents}
+      <div class="row head">
+        <span class="cell">id</span>
+        <span class="cell">category</span>
+        <span class="cell">from</span>
+        <span class="cell">to</span>
+        <span class="cell">cost</span>
+        <span class="cell">currency</span>
+        <span class="cell">fixed</span>
+        <span class="cell">desc</span>
+        <span class="cell">createdAt</span>
+        <span class="cell">updatedAt</span>
+      </div>
+			${contents.join("")}
 		</div>
 		`);
   }

@@ -7,17 +7,44 @@ body {
 body {
   #app {
     height: 100vh;
+
     .table {
       width: 80%;
       margin-top: 1rem;
       margin-left: auto;
       margin-right: auto;
       padding: 1rem;
+
       .row {
-        border-bottom: 1px solid #565656;
         padding: 0 0 0.5rem;
-        &:not(:nth-child(1)) {
+        display: flex;
+        &.head {
+          // font-size: 14px;
+          font-weight: 700;
+          text-transform: uppercase;
+          text-align: center;
+          :not(:last-child) {
+            border-right: 1px solid #56565656;
+          }
+        }
+        &.body {
+          font-size: 14px;
+
+          .cell {
+            padding: 0.1rem 0.5rem;
+            &:not(:last-child) {
+              border-right: 1px solid #56565656;
+            }
+          }
+        }
+
+        &:not(:last-child) {
           margin-bottom: 0.5rem;
+          border-bottom: 1px solid #565656;
+        }
+
+        .cell {
+          flex: 1;
         }
       }
       box-shadow: 0 0 1rem 0 #56565656;
