@@ -71,26 +71,21 @@ export default class AccountBook {
     });
 
     this.renderer.render(`
-<<<<<<< HEAD
-		<div class="table">
-      <div class="row head">
-        <span class="cell">id</span>
-        <span class="cell">category</span>
-        <span class="cell">from</span>
-        <span class="cell">to</span>
-        <span class="cell">cost</span>
-        <span class="cell">currency</span>
-        <span class="cell">fixed</span>
-        <span class="cell">desc</span>
-        <span class="cell">createdAt</span>
-        <span class="cell">updatedAt</span>
-      </div>
-			${contents.join("")}
-		</div>
-=======
     <div class="wrapper">
       <div class="table">
-        ${contents}
+        <div class="row head">
+          <span class="cell">id</span>
+          <span class="cell">category</span>
+          <span class="cell">from</span>
+          <span class="cell">to</span>
+          <span class="cell">cost</span>
+          <span class="cell">currency</span>
+          <span class="cell">fixed</span>
+          <span class="cell">desc</span>
+          <span class="cell">createdAt</span>
+          <span class="cell">updatedAt</span>
+        </div>
+        ${contents.join("")}
       </div>
       <form action="">
         <select class="input" name="currency">
@@ -107,7 +102,6 @@ export default class AccountBook {
         <button class="btn" id="insert">등록</button>
       </form>
     </div>
->>>>>>> origin/main
 		`);
   }
 }
