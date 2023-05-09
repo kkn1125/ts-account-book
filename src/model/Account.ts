@@ -14,7 +14,7 @@ export type AccountType = {
 };
 
 export default class Account {
-  id: string;
+  id: string = "";
   category: string = "basic";
   from: string = "";
   to: string = "";
@@ -65,18 +65,22 @@ export default class Account {
     return newElement;
   }
 
+  fieldToHtml = {
+    id: () => this.id,
+    category: () => this.category,
+    from: () => this.from,
+    to: () => this.to,
+    currency: () => this.currency,
+    desc: () => this.desc,
+    cost: () => this.cost.toLocaleString("ko"),
+    fixed: () => (this.fixed ? "fixed" : "non-fixed"),
+    createdAt: () => new Date(this.createdAt).toLocaleString("ko"),
+    updatedAt: () => new Date(this.updatedAt).toLocaleString("ko"),
+  };
+
   render(field: keyof AccountType) {
     const span = this.createElement("span", { classes: [field] });
-    let content = "";
-    if (field === "cost") {
-      content = this[field].toLocaleString("ko");
-    } else if (field === "createdAt" || field === "updatedAt") {
-      content = new Date(this[field]).toLocaleString("ko");
-    } else if (field === "fixed") {
-      content = this[field] ? "fixed" : "";
-    } else {
-      content = this[field];
-    }
+    const content = this.fieldToHtml[field]();
     span.innerHTML = String(content) || "";
     // return this[field] ? span.outerHTML : "";
     return span.outerHTML;

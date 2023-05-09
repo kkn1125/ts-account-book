@@ -8,46 +8,150 @@ body {
   #app {
     height: 100vh;
 
-    .table {
+    .wrapper {
       width: 80%;
       margin-top: 1rem;
       margin-left: auto;
       margin-right: auto;
       padding: 1rem;
+      box-shadow: 0 0 1rem 0 #56565656;
 
-      .row {
-        padding: 0 0 0.5rem;
-        display: flex;
-        &.head {
-          // font-size: 14px;
-          font-weight: 700;
-          text-transform: uppercase;
-          text-align: center;
-          :not(:last-child) {
-            border-right: 1px solid #56565656;
+      .table {
+        .row {
+          padding: 0 0 0.5rem;
+          display: flex;
+          &.head {
+            // font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-align: center;
+            :not(:last-child) {
+              border-right: 1px solid #56565656;
+            }
           }
-        }
-        &.body {
-          font-size: 14px;
+          &.body {
+            font-size: 14px;
+
+            .cell {
+              padding: 0.1rem 0.5rem;
+              &:not(:last-child) {
+                border-right: 1px solid #56565656;
+              }
+            }
+          }
+
+          &:not(:last-child) {
+            margin-bottom: 0.5rem;
+            border-bottom: 1px solid #565656;
+          }
 
           .cell {
-            padding: 0.1rem 0.5rem;
-            &:not(:last-child) {
-              border-right: 1px solid #56565656;
+            flex: 1;
+          }
+        }
+      }
+
+      .account-form {
+        display: flex;
+        gap: 0.5rem;
+        align-items: stretch;
+
+        input,
+        button,
+        select {
+          outline: none;
+          padding: 0.3rem;
+        }
+
+        input,
+        button {
+          border: solid 1px #56565656;
+        }
+
+        .fixed {
+          display: flex;
+          align-items: center;
+          gap: 0.3rem;
+
+          .checkbox {
+            position: relative;
+            border: solid 1px #56565656;
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+
+            input[type="checkbox"] {
+              // accent-color: #c7704b;
+              display: none;
+            }
+
+            background-color: white;
+
+            &::before {
+              position: absolute;
+              content: "";
+              top: 0%;
+              left: 27%;
+              width: 8px;
+              height: 16px;
+              border-left-width: 5px;
+              border-bottom-width: 5px;
+              border-left-style: solid;
+              border-bottom-style: solid;
+              border-left-color: #ffffff;
+              border-bottom-color: #ffffff;
+              transform: rotate(45deg) scaleX(-1);
+              -webkit-transform: rotate(45deg) scaleX(-1);
+              -moz-transform: rotate(45deg) scaleX(-1);
+              -ms-transform: rotate(45deg) scaleX(-1);
+              -o-transform: rotate(45deg) scaleX(-1);
+              transition: 150ms ease-in-out;
+              -webkit-transition: 150ms ease-in-out;
+              -moz-transition: 150ms ease-in-out;
+              -ms-transition: 150ms ease-in-out;
+              -o-transition: 150ms ease-in-out;
+            }
+
+            &.selected::before {
+              border-left-color: #c7704b;
+              border-bottom-color: #c7704b;
             }
           }
         }
 
-        &:not(:last-child) {
-          margin-bottom: 0.5rem;
-          border-bottom: 1px solid #565656;
+        input[type="text"] {
+          border-radius: 0rem;
+          -webkit-border-radius: 0rem;
+          -moz-border-radius: 0rem;
+          -ms-border-radius: 0rem;
+          -o-border-radius: 0rem;
         }
 
-        .cell {
-          flex: 1;
+        button {
+          border: none;
+          padding: 0.3rem 0.8rem;
+          text-transform: uppercase;
+          background-color: #db8d6c;
+          color: white;
+          font-weight: 700;
+          font-size: 0.85rem;
+          &:hover {
+            filter: brightness(0.95);
+            -webkit-filter: brightness(0.95);
+          }
+          &:hover,
+          &:focus-within,
+          &:active {
+            box-shadow: 0 0 0 0.3rem #c7704b56;
+          }
         }
       }
-      box-shadow: 0 0 1rem 0 #56565656;
+
+      border-radius: 0.5rem;
+      -webkit-border-radius: 0.5rem;
+      -moz-border-radius: 0.5rem;
+      -ms-border-radius: 0.5rem;
+      -o-border-radius: 0.5rem;
     }
   }
 }

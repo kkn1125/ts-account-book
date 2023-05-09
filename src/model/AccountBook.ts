@@ -19,6 +19,7 @@ export default class AccountBook {
 
       if (target.id === "fixed") {
         console.log(target.checked);
+        target.parentElement?.classList.toggle("selected", target.checked);
       }
     });
   }
@@ -87,17 +88,20 @@ export default class AccountBook {
         </div>
         ${contents.join("")}
       </div>
-      <form action="">
+      <form class="account-form" action="">
         <select class="input" name="currency">
-          <option value="credit" selected>credit</option>
-          <option value="cash">cash</option>
+          <option value="credit" selected>카드</option>
+          <option value="cash">현금</option>
         </select>
-        <input class="input" type="text" name="category" />
-        <input class="input" type="text" name="cost" />
-        <input class="input" type="text" name="from" />
-        <input class="input" type="text" name="to" />
+        <input class="input" type="text" name="category" placeholder="분류" />
+        <input class="input" type="text" name="cost" placeholder="비용" />
+        <input class="input" type="text" name="from" placeholder="보내는 사람" />
+        <input class="input" type="text" name="to" placeholder="받는 사람" />
         <label class="fixed">
-          <input type="checkbox" id="fixed" />
+          <span>고정</span>
+          <span class="checkbox">
+            <input type="checkbox" id="fixed" />
+          </span>
         </label>
         <button class="btn" id="insert">등록</button>
       </form>
