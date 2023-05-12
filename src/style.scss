@@ -9,7 +9,6 @@ body {
     height: 100vh;
 
     .wrapper {
-      width: 80%;
       margin-top: 1rem;
       margin-left: auto;
       margin-right: auto;
@@ -21,6 +20,9 @@ body {
           padding: 0 0 0.5rem;
           display: flex;
           &.head {
+            display: flex;
+            width: 100%;
+            font-size: calc(0.45rem + 1vw);
             // font-size: 14px;
             font-weight: 700;
             text-transform: uppercase;
@@ -28,9 +30,14 @@ body {
             :not(:last-child) {
               border-right: 1px solid #56565656;
             }
+            & .cell {
+              flex: 1;
+              // white-space: nowrap;
+              // text-overflow: ellipsis;
+            }
           }
           &.body {
-            font-size: 14px;
+            font-size: calc(0.35rem + 1vw);
 
             .cell {
               padding: 0.1rem 0.5rem;
@@ -51,6 +58,12 @@ body {
         }
       }
 
+      @media (min-width: 400px) and (max-width: 979px) {
+        .account-form {
+          flex-wrap: wrap;
+        }
+      }
+
       .account-form {
         display: flex;
         gap: 0.5rem;
@@ -63,12 +76,13 @@ body {
           padding: 0.3rem;
         }
 
+        select,
         input,
         button {
           border: solid 1px #56565656;
         }
 
-        .fixed {
+        label.fixed {
           display: flex;
           align-items: center;
           gap: 0.3rem;
